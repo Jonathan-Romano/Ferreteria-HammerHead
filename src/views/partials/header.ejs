@@ -1,0 +1,56 @@
+<header>
+    <nav class="header-nav">
+        <div class="main-header">
+            <div class="top-header">
+                <div>
+                <a href="/"><img src="\img\Logo-HammerHead.png" alt="logo de Hammerhead" class="logo"></a>
+                </div>
+            </div>
+            
+            <form action="/producto/busqueda" class="input-search" method="Post">
+                <div class="input">
+                    <input type="text"  name="search" id = "search" placeholder="Producto o Marca">       
+                    <button class=" search-icon"><i class="fas fa-search"></i></button>
+                </div>              
+            </form>
+
+            <div class="carritoAccesoDirecto">
+                <a href="/carrito">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div> 
+
+            <div class="burger-menu">
+                <i class="fa fa-bars burger"></i>
+            </div>
+            <% if (locals.isLogged) { %>
+                <div class="users-action">
+                    <a href="/profile"><i class="fas fa-user"></i><%= userLogged.first_name %></a>
+                </div>
+                <div class="users-action">
+                    <form action="/logout" method="post">
+                        <button type="submit"><i class="fas fa-sign-in-alt"></i>Cerrar Sesión</button>
+                    </form>  
+
+                  </div>
+            <% }else  { %>
+            <div class="users-action">
+                <a href="/login"><i class="fas fa-sign-in-alt"></i>Iniciar Sesión</a>
+            </div>
+
+            <div class="users-action">
+                <a href="/register"><i class="fas fa-plus-circle"></i>Registrarse</a>
+            </div>
+            <% } %>
+        </div>
+        </div>
+        <div class="bottom-header">
+            <ul class="lista">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/producto/productList">Productos</a></li>
+                <li><a href="#footer">Contactos</a></li>
+                <li><a href="/about-us">Quienes Somos</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
